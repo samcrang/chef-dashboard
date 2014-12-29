@@ -1,2 +1,2 @@
-require './chef_dashboard'
+require './lib/chef_dashboard'
 run ChefDashboard

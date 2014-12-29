@@ -5,7 +5,7 @@ require 'ridley'
 require 'rack'
 require 'webmock/rspec'
 
-require_relative '../chef_dashboard'
+require_relative '../lib/chef_dashboard'
 
 Capybara.app = ChefDashboard
 

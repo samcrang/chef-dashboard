@@ -4,6 +4,8 @@ require 'ridley'
 require 'faraday'
 
 class ChefDashboard < Sinatra::Base
+  set :views, Proc.new { File.join(root, "../views") }
+
   def apps
     {
       FooApp: {
