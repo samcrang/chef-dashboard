@@ -11,4 +11,6 @@ group :development do
   gem 'capybara'
   gem 'byebug'
   gem 'rspec'
+  gem 'rake'
+  gem 'rubocop'
 end
