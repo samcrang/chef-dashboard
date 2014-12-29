@@ -8,5 +8,7 @@ gem 'haml'
 
 group :development do
   gem 'chef-zero'
+  gem 'capybara'
   gem 'byebug'
+  gem 'rspec'
 end

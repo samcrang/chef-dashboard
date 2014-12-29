@@ -4,7 +4,8 @@ require 'ridley'
 require 'faraday'
 require 'byebug'
 
-class App < Sinatra::Base
+class ChefDashboard < Sinatra::Base
+
   def apps
     {
       :FooApp => {
@@ -23,9 +24,9 @@ class App < Sinatra::Base
 
   get '/servers' do
     ridley = Ridley.new(
-      :server_url => 'http://127.0.0.1:9292',
+      :server_url => 'http://127.0.0.1:4000',
       :client_name => 'stickywicket',
-      :client_key => 'test/fixtures/.chef/stickywicket.pem'
+      :client_key => 'spec/fixtures/.chef/stickywicket.pem'
     )
 
     a = apps.reduce([]) { |memo, (k, v)|
@@ -35,7 +36,7 @@ class App < Sinatra::Base
         {
           :name => n.name,
           :expected_version => v[:expected_version],
-          :actual_version => Faraday.get("http://127.0.0.1:9292/#{v[:actual_version]}").body
+          :actual_version => Faraday.get("http://127.0.0.1:4000/#{v[:actual_version]}").body
         }
       }
     }
