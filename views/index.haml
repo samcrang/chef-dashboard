@@ -1,0 +1,10 @@
+%html
+  %head
+  %body
+    %table
+      %tbody
+        - a.each do |app|
+          %tr
+            %td= app[:name]
+            %td= app[:expected_version]
+            %td= app[:actual_version]
