@@ -40,6 +40,4 @@ class ChefDashboard < Sinatra::Base
     end
     haml :index, locals: { a: a }
   end
-
-  run! if app_file == $PROGRAM_NAME
 end
