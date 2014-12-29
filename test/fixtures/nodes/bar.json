@@ -1,0 +1,11 @@
+{
+  "name": "bar",
+  "chef_type": "node",
+  "json_class": "Chef::Node",
+  "chef_environment": "_default",
+  "automatic": {
+    "ipaddress": "127.0.0.1"
+  },
+
+  "run_list": ["recipe[bar_app]"]
+}
