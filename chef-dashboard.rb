@@ -11,13 +11,13 @@ class ChefDashboard < Sinatra::Base
       :FooApp => {
         :recipe => 'recipe\\[foo_app\\]',
         :expected_version => '3.141',
-        :actual_version => '/foo/version'
+        :actual_version => 'foo/version'
 
       },
       :BarApp => {
         :recipe => 'recipe\\[bar_app\\]',
         :expected_version => '3.141',
-        :actual_version => '/bar/version'
+        :actual_version => 'bar/version'
       }
     }
   end
