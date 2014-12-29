@@ -2,7 +2,6 @@ require 'sinatra/base'
 require 'sinatra/json'
 require 'ridley'
 require 'faraday'
-require 'byebug'
 
 class ChefDashboard < Sinatra::Base
   def apps
