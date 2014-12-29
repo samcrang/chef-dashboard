@@ -36,7 +36,7 @@ class ChefDashboard < Sinatra::Base
         {
           :name => n.name,
           :expected_version => v[:expected_version],
-          :actual_version => Faraday.get("http://127.0.0.1:4000/#{v[:actual_version]}").body
+          :actual_version => Faraday.get("http://127.0.0.1/#{v[:actual_version]}").body
         }
       }
     }
