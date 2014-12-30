@@ -5,6 +5,7 @@ gem 'sinatra-contrib'
 gem 'rack'
 gem 'ridley'
 gem 'haml'
+gem 'puma'
 
 group :development do
   gem 'chef-zero'
