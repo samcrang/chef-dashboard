@@ -11,6 +11,16 @@ class ChefDashboard < Sinatra::Base
 
   set :views, proc { File.join(root, '../views') }
 
+  def initialize(*args)
+    @ridley ||= Ridley.new(
+      server_url: settings.chef_api_url,
+      client_name: settings.chef_client_name,
+      client_key: settings.chef_client_key_path
+    )
+
+    super(args)
+  end
+
   def apps
     {
       FooApp: {
@@ -28,16 +38,10 @@ class ChefDashboard < Sinatra::Base
   end
 
   get '/servers' do
-    ridley = Ridley.new(
-      server_url: settings.chef_api_url,
-      client_name: settings.chef_client_name,
-      client_key: settings.chef_client_key_path
-    )
-
     a = apps.reduce([]) do |memo, (_, v)|
       query = "run_list:#{v[:recipe]}"
 
-      memo + ridley.search(:node, query).map do |n|
+      memo + @ridley.search(:node, query).map do |n|
         {
           name: n.name,
           expected_version: v[:expected_version],
