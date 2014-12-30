@@ -8,12 +8,13 @@ require 'webmock/rspec'
 require_relative '../lib/chef_dashboard'
 require_relative 'helpers/dummy_app.rb'
 
-Capybara.app = ChefDashboard
+Capybara.app = Web
 
 RSpec.configure do |conf|
   conf.before(:all) do
     WebMock.allow_net_connect!
-    stub_request(:get, /http:\/\/127\.0\.0\.1\/dummy\/*/).to_rack(DummyApp)
+    stub_request(:get, 'http://127.0.0.1/dummy/foo/version').to_return(body: '3.141592')
+    stub_request(:get, 'http://127.0.0.1/dummy/bar/version').to_return(body: '2.718281')
 
     @server = ChefZero::Server.new(port: 4000)
     @server.start_background
