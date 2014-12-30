@@ -1,9 +1,14 @@
 require 'sinatra/base'
 require 'sinatra/json'
+require "sinatra/config_file"
 require 'ridley'
 require 'faraday'
 
 class ChefDashboard < Sinatra::Base
+  register Sinatra::ConfigFile
+
+  config_file '../config/config.yml'
+
   set :views, Proc.new { File.join(root, "../views") }
 
   def apps
@@ -24,9 +29,9 @@ class ChefDashboard < Sinatra::Base
 
   get '/servers' do
     ridley = Ridley.new(
-      server_url: 'http://127.0.0.1:4000',
-      client_name: 'stickywicket',
-      client_key: 'spec/fixtures/.chef/stickywicket.pem'
+      server_url: settings.chef_api_url,
+      client_name: settings.chef_client_name,
+      client_key: settings.chef_client_key_path
     )
 
     a = apps.reduce([]) do |memo, (_, v)|
