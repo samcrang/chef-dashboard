@@ -1,10 +1,18 @@
-%html
+%html{ lang: "en" }
   %head
+    %title Rollout Status
+    %link{ rel: "stylesheet", href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" }
+    %link{ rel: "stylesheet", href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css" }
+    %script{ src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" }
   %body
-    %table
-      %tbody
-        - a.each do |app|
-          %tr
-            %td= app[:name]
-            %td= app[:expected_version]
-            %td= app[:actual_version]
+    %div.container
+      %div.panel.panel-success
+        %div.panel-heading
+          Lookin' good
+        %table.table
+          %tbody
+            - a.each do |app|
+              %tr
+                %td= app[:name]
+                %td= app[:expected_version]
+                %td= app[:actual_version]
