@@ -13,7 +13,11 @@ module ChefDashboard
     end
 
     def all
-      ridley.search(:node, '*:*')
+      ridley.search(:node, '*:*').map do |node|
+        {
+          name: node.name
+        }
+      end
     end
 
     def running(requested_app)

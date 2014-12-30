@@ -11,8 +11,8 @@
           Lookin' good
         %table.table
           %tbody
-            - a.each do |app|
+            - nodes.each do |node|
               %tr
-                %td= app[:name]
-                %td= app[:expected_version]
-                %td= app[:actual_version]
+                %td= node[:name]
+                %td= node[:expected_version]
+                %td= node[:actual_version]

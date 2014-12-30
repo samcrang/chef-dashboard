@@ -13,8 +13,13 @@ module ChefDashboard
     set :views, proc { File.join(root, '../../views') }
 
     get '/nodes' do
-      a = nodes.running(:foo_app) + nodes.running(:bar_app)
-      haml :index, locals: { a: a }
+      n = nodes.all
+      haml :index, locals: { nodes: n }
+    end
+
+    get '/nodes/running/:app' do |app|
+      n = nodes.running(app.to_sym)
+      haml :index, locals: { nodes: n }
     end
 
     private
