@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/json'
-require "sinatra/config_file"
+require 'sinatra/config_file'
 require 'ridley'
 require 'faraday'
 
@@ -9,7 +9,7 @@ class ChefDashboard < Sinatra::Base
 
   config_file '../config/config.yml'
 
-  set :views, Proc.new { File.join(root, "../views") }
+  set :views, proc { File.join(root, '../views') }
 
   def apps
     {
