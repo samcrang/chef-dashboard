@@ -12,7 +12,7 @@ module ChefDashboard
 
     set :views, proc { File.join(root, '../../views') }
 
-    get '/servers' do
+    get '/nodes' do
       a = nodes.running(:foo_app) + nodes.running(:bar_app)
       haml :index, locals: { a: a }
     end
