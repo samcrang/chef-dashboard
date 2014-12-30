@@ -8,7 +8,7 @@ require 'webmock/rspec'
 require_relative '../lib/chef_dashboard'
 require_relative 'helpers/dummy_app.rb'
 
-Capybara.app = Web
+Capybara.app = ChefDashboard::Web
 
 RSpec.configure do |conf|
   conf.before(:all) do

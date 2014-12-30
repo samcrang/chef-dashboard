@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../../lib/nodes'
+require_relative '../../lib/chef_dashboard/nodes'
 
 describe ChefDashboard::Nodes do
   subject { described_class.new 'http://127.0.0.1:4000', 'stickywicket', 'spec/fixtures/.chef/stickywicket.pem' }
