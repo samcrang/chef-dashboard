@@ -29,7 +29,12 @@ module ChefDashboard
 
     get '/deployments/:app' do |app|
       n = nodes.running(app.to_sym)
-      haml :deployments, locals: { nodes: n }
+
+      if n.empty?
+        status 404
+      else
+        haml :deployments, locals: { nodes: n }
+      end
     end
 
     get '/deployments' do

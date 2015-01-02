@@ -40,4 +40,10 @@ describe '/deployments/:app', type: :feature do
       expect(page).to have_selector('tr.success', count: 1)
     end
   end
+
+  it 'should return 404 if no app found' do
+    visit '/deployments/unknown_app' 
+
+    expect(page.status_code).to equal 404
+  end
 end

@@ -21,6 +21,10 @@ module ChefDashboard
 
     def running(requested_app)
       app = apps.find(requested_app)
+      
+      if app.nil?
+        return []
+      end
 
       ridley.search(:node, "run_list:#{app.recipe}").map do |node|
         {
