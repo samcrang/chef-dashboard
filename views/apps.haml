@@ -1,16 +1,17 @@
-%div.panel
-  %table.table
-    %thead
-      %tr
-        %th
-          Name
-        %th
-          Identifier
-        %th
-          Latest Version
-    %tbody
-      - apps.each do |app|
+%div.row
+  %div.panel
+    %table.table.table-condensed
+      %thead
         %tr
-          %td= app[:name]
-          %td= app[:identifier]
-          %td= app[:expected_version]
+          %th
+            Name
+          %th
+            Identifier
+          %th
+            Latest Version
+      %tbody
+        - apps.each do |app|
+          %tr
+            %td= app[:name]
+            %td= app[:identifier]
+            %td= app[:expected_version]

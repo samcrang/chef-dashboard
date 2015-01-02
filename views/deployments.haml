@@ -1,19 +1,20 @@
-%div.panel
-  %table.table.table-condensed
-    %thead
-      %tr
-        %th
-          Node
-        %th
-          App
-        %th
-          Latest version
-        %th
-          Actual version
-    %tbody
-      - nodes.each do |node|
-        %tr{ class: node[:expected_version] == node[:actual_version] ? 'success' : 'danger' }
-          %td= node[:name]
-          %td= node[:app_name]
-          %td= node[:expected_version]
-          %td= node[:actual_version]
+%div.row
+  %div.panel
+    %table.table.table-condensed
+      %thead
+        %tr
+          %th
+            Node
+          %th
+            App
+          %th
+            Latest version
+          %th
+            Actual version
+      %tbody
+        - nodes.each do |node|
+          %tr{ class: node[:expected_version] == node[:actual_version] ? 'success' : 'danger' }
+            %td= node[:name]
+            %td= node[:app_name]
+            %td= node[:expected_version]
+            %td= node[:actual_version]
