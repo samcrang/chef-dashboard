@@ -6,13 +6,4 @@
     %script{ src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" }
   %body
     %div.container
-      %div.panel.panel-success
-        %div.panel-heading
-          Lookin' good
-        %table.table
-          %tbody
-            - nodes.each do |node|
-              %tr
-                %td= node[:name]
-                %td= node[:expected_version]
-                %td= node[:actual_version]
+      = yield

@@ -23,11 +23,11 @@ module ChefDashboard
     def running(requested_app)
       app = apps.find(requested_app)
 
-      ridley.search(:node, "run_list:#{app[:recipe]}").map do |node|
+      ridley.search(:node, "run_list:#{app.recipe}").map do |node|
         {
           name: node.name,
-          expected_version: app[:expected_version],
-          actual_version: app[:actual_version]
+          expected_version: app.expected_version,
+          actual_version: app.actual_version
         }
       end
     end

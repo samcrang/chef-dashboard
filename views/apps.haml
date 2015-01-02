@@ -1,0 +1,7 @@
+%div.panel
+  %table.table
+    %tbody
+      - apps.each do |app|
+        %tr
+          %td= app[:identifier]
+          %td= app[:recipe]
