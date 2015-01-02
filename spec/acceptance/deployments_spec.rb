@@ -42,7 +42,7 @@ describe '/deployments/:app', type: :feature do
   end
 
   it 'should return 404 if no app found' do
-    visit '/deployments/unknown_app' 
+    visit '/deployments/unknown_app'
 
     expect(page.status_code).to equal 404
   end
