@@ -32,6 +32,14 @@ module ChefDashboard
       haml :deployments, locals: { nodes: n }
     end
 
+    get '/deployments' do
+      n = apps.all.reduce([]) do |memo, app|
+        memo + nodes.running(app[:identifier])
+      end
+
+      haml :deployments, locals: { nodes: n }
+    end
+
     private
 
     def nodes

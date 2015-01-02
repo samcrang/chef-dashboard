@@ -1,6 +1,17 @@
 require 'spec_helper'
 
 describe '/deployments/:app', type: :feature do
+  it 'displays all nodes and all the apps they run' do
+    visit '/deployments'
+
+    page.within(:css, 'tbody') do
+      expect(page).to have_selector('tr.success', count: 1)
+      expect(page).to have_selector('tr.danger', count: 1)
+    end
+  end
+end
+
+describe '/deployments/:app', type: :feature do
   it 'displays all nodes running foo_app' do
     visit '/deployments/foo_app'
 
@@ -29,5 +40,4 @@ describe '/deployments/:app', type: :feature do
       expect(page).to have_selector('tr.success', count: 1)
     end
   end
-
 end
