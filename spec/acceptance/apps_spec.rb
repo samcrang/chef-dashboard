@@ -4,7 +4,7 @@ describe '/apps', type: :feature do
   it 'displays all apps' do
     visit '/apps'
 
-    page.within(:css, 'table') do
+    page.within(:css, 'tbody') do
       page.within(:css, 'tr:first-child') do
         expect(page).to have_content 'FooApp'
         expect(page).to have_content 'foo_app'

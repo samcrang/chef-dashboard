@@ -1,8 +1,7 @@
-%div.panel.panel-success
-  %div.panel-heading
-    Lookin' good
-    %table.table
-      %thead
+%div.panel
+  %table.table.table-condensed
+    %thead
+      %tr
         %th
           Node
         %th
@@ -11,10 +10,10 @@
           Latest version
         %th
           Actual version
-      %tbody
-        - nodes.each do |node|
-          %tr
-            %td= node[:name]
-            %td= node[:app_name]
-            %td= node[:expected_version]
-            %td= node[:actual_version]
+    %tbody
+      - nodes.each do |node|
+        %tr
+          %td= node[:name]
+          %td= node[:app_name]
+          %td= node[:expected_version]
+          %td= node[:actual_version]
