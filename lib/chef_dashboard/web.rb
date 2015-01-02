@@ -23,9 +23,9 @@ module ChefDashboard
       haml :nodes, locals: { nodes: n }
     end
 
-    get '/nodes/running/:app' do |app|
+    get '/deployments/:app' do |app|
       n = nodes.running(app.to_sym)
-      haml :nodes, locals: { nodes: n }
+      haml :deployments, locals: { nodes: n }
     end
 
     private

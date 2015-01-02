@@ -1,0 +1,10 @@
+%div.panel.panel-success
+  %div.panel-heading
+    Lookin' good
+    %table.table
+      %tbody
+        - nodes.each do |node|
+          %tr
+            %td= node[:name]
+            %td= node[:expected_version]
+            %td= node[:actual_version]
