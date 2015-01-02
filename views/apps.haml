@@ -12,6 +12,6 @@
       %tbody
         - apps.each do |app|
           %tr
-            %td= app[:name]
-            %td= app[:identifier]
-            %td= app[:expected_version]
+            %td&= app[:name]
+            %td&= app[:identifier]
+            %td&= app[:expected_version]
