@@ -1,5 +1,4 @@
 require 'ridley'
-require 'faraday'
 require_relative 'apps'
 
 module ChefDashboard
