@@ -1,7 +1,15 @@
 %div.panel
   %table.table
+    %thead
+      %th
+        Name
+      %th
+        Identifier
+      %th
+        Latest Version
     %tbody
       - apps.each do |app|
         %tr
+          %td= app[:name]
           %td= app[:identifier]
-          %td= app[:recipe]
+          %td= app[:expected_version]
