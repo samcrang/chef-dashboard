@@ -2,8 +2,8 @@ require 'sinatra/base'
 require 'sinatra/json'
 require 'sinatra/config_file'
 
-require_relative './nodes'
-require_relative './apps'
+require 'chef_dashboard/nodes'
+require 'chef_dashboard/apps'
 
 module ChefDashboard
   class Web < Sinatra::Base

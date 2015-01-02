@@ -1,5 +1,5 @@
 require 'ridley'
-require_relative 'apps'
+require 'chef_dashboard/apps'
 
 module ChefDashboard
   class Nodes

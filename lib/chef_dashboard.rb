@@ -1,3 +1,10 @@
-require_relative './chef_dashboard/web'
-require_relative './chef_dashboard/nodes'
-require_relative './chef_dashboard/apps'
+require 'chef_dashboard/nodes'
+require 'chef_dashboard/apps'
+require 'chef_dashboard/web'
+
+module ChefDashboard
+  module Configuration
+    module Apps
+    end
+  end
+end

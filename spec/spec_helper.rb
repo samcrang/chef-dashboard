@@ -3,7 +3,7 @@ require 'capybara/rspec'
 require 'chef_zero/server'
 require 'ridley'
 
-require_relative '../lib/chef_dashboard'
+require 'chef_dashboard'
 
 Capybara.app = ChefDashboard::Web
 
