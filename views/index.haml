@@ -1,0 +1,14 @@
+%div.page-header
+  %h1
+    Chef Dashboard
+  %p.lead
+    Working out what's deployed and where.
+
+%div.row
+  %ul.list-unstyled
+    %li
+      %a{ href: "#{ENV['PATH_INFO'}/apps" } Apps
+    %li
+      %a{ href: 'nodes/' } Nodes
+    %li
+      %a{ href: 'deployments/' } Deployments

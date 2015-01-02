@@ -13,6 +13,10 @@ module ChefDashboard
 
     set :views, proc { File.join(root, '../../views') }
 
+    get '/' do
+      haml :index
+    end
+
     get '/apps' do
       a = apps.all
       haml :apps, locals: { apps: a }
