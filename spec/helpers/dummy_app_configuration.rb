@@ -29,11 +29,11 @@ module ChefDashboard
         end
 
         def expected_version
-          '3.141'
+          '2.7182'
         end
 
         def actual_version
-          '3.141592'
+          '2.7182'
         end
       end
     end

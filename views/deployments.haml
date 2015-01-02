@@ -12,7 +12,7 @@
           Actual version
     %tbody
       - nodes.each do |node|
-        %tr
+        %tr{ class: node[:expected_version] == node[:actual_version] ? 'success' : 'danger' }
           %td= node[:name]
           %td= node[:app_name]
           %td= node[:expected_version]

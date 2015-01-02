@@ -12,7 +12,22 @@ describe '/deployments/:app', type: :feature do
         expect(page).to have_content '3.141592'
       end
 
-      expect(page).to have_selector('tr', count: 1)
+      expect(page).to have_selector('tr.danger', count: 1)
     end
   end
+
+  it 'displays all nodes running bar_app' do
+    visit '/deployments/bar_app'
+
+    page.within(:css, 'tbody') do
+      page.within(:css, 'tr:first-child') do
+        expect(page).to have_content 'bar'
+        expect(page).to have_content 'BarApp'
+        expect(page).to have_content '2.7182'
+      end
+
+      expect(page).to have_selector('tr.success', count: 1)
+    end
+  end
+
 end
