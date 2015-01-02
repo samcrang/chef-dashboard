@@ -1,4 +1,4 @@
-Dir['config/apps/*.rb'].each {|file| require "./#{file}" }
+Dir['config/apps/*.rb'].each { |file| require "./#{file}" }
 
 module ChefDashboard
   class Apps
@@ -17,8 +17,21 @@ module ChefDashboard
       end
     end
 
+    private
+
     def apps
-      @apps ||= ::ChefDashboard::Configuration::Apps.constants.collect{|k| ::ChefDashboard::Configuration::Apps.const_get(k)}.select {|k| k.is_a?(Class)}.map {|k| k.new}
+      @apps ||=
+        begin
+          all_constants = ChefDashboard::Configuration::Apps.constants.collect do |k|
+            ChefDashboard::Configuration::Apps.const_get(k)
+          end
+
+          all_classes = all_constants.select do |k|
+            k.is_a?(Class)
+          end
+
+          all_classes.map(&:new)
+        end
     end
   end
 end
