@@ -9,8 +9,6 @@ module ChefDashboard
   class Web < Sinatra::Base
     register Sinatra::ConfigFile
 
-    config_file '../../config/config.yml'
-
     set :views, proc { File.join(root, '../../views') }
 
     get '/' do
@@ -48,7 +46,10 @@ module ChefDashboard
     private
 
     def nodes
-      @nodes ||= ::ChefDashboard::Nodes.new(settings.chef_api_url, settings.chef_client_name, settings.chef_client_key_path)
+      chef_api_url = ::ChefDashboard::Configuration::Settings.chef_api_url
+      chef_client_name = ::ChefDashboard::Configuration::Settings.chef_client_name
+      chef_client_key_path = ::ChefDashboard::Configuration::Settings.chef_client_key_path
+      @nodes ||= ::ChefDashboard::Nodes.new(chef_api_url, chef_client_name, chef_client_key_path)
     end
 
     def apps

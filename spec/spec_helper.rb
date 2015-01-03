@@ -6,6 +6,24 @@ require 'ridley'
 require 'chef_dashboard'
 require 'helpers/dummy_app_configuration'
 
+module ChefDashboard
+  module Configuration
+    class Settings
+      def self.chef_api_url
+        'http://127.0.0.1:4000'
+      end
+
+      def self.chef_client_name
+        'stickywicket'
+      end
+
+      def self.chef_client_key_path
+        'spec/fixtures/.chef/stickywicket.pem'
+      end
+    end
+  end
+end
+
 Capybara.app = ChefDashboard::Web
 
 RSpec.configure do |conf|
