@@ -1,5 +1,3 @@
-Dir['config/apps/*.rb'].each { |file| require "./#{file}" }
-
 module ChefDashboard
   class Apps
     def all
