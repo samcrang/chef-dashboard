@@ -1,3 +1,12 @@
+PATH
+  remote: .
+  specs:
+    chef_dashboard (0.1.0)
+      haml
+      ridley
+      sinatra
+      sinatra-contrib
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -14,10 +23,6 @@ GEM
     buff-ruby_engine (0.1.0)
     buff-shell_out (0.2.0)
       buff-ruby_engine (~> 0.1.0)
-    byebug (3.5.1)
-      columnize (~> 0.8)
-      debugger-linecache (~> 1.2)
-      slop (~> 3.6)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -35,8 +40,6 @@ GEM
       mixlib-log (~> 1.3)
       rack
       uuidtools (~> 2.1)
-    columnize (0.9.0)
-    debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     faraday (0.9.0)
@@ -137,14 +140,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
   capybara
   chef-zero
-  haml
-  rack
+  chef_dashboard!
   rake
-  ridley
   rspec
   rubocop
-  sinatra
-  sinatra-contrib
