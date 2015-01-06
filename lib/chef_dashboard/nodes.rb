@@ -29,7 +29,7 @@ module ChefDashboard
           name: node.name,
           app_name: app.class.name.split('::').last,
           expected_version: app.expected_version,
-          actual_version: app.actual_version
+          actual_version: app.actual_version(node)
         }
       end
     end

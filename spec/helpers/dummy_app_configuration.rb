@@ -14,7 +14,7 @@ module ChefDashboard
           '3.141'
         end
 
-        def actual_version
+        def actual_version(node)
           '3.141592'
         end
       end
@@ -32,7 +32,7 @@ module ChefDashboard
           '2.7182'
         end
 
-        def actual_version
+        def actual_version(node)
           '2.7182'
         end
       end
