@@ -4,8 +4,7 @@ module ChefDashboard
       apps.map do |app|
         {
           name: app.class.name.split('::').last,
-          identifier: app.identifier,
-          expected_version: app.expected_version
+          identifier: app.identifier
         }
       end
     end
